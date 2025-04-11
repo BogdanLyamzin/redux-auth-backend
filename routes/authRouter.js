@@ -12,7 +12,7 @@ const authRouter = express.Router();
 
 authRouter.post("/signup", validateBody(authSignupSchema), authControllers.signupController);
 
-authRouter.post("/login", validateBody(authSigninSchema), authControllers.signinController);
+authRouter.post("/login",  authControllers.signinController);
 
 authRouter.get("/current", authenticate, authControllers.getCurrentController);
 
