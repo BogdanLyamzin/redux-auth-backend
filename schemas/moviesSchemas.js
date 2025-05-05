@@ -7,7 +7,7 @@ export const movieAddSchema = Joi.object({
     director: Joi.string().required(),
     favorite: Joi.boolean(),
     genre: Joi.string().valid(...genreList),
-    releaseYear: Joi.string().pattern(releaseYearRegexp).required(),
+    releaseYear: Joi.number().required(),
 })
 
 export const movieUpdateSchema = Joi.object({

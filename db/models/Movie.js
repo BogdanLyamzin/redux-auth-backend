@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 
 import Sequelize from "../Sequelize.js";
 
-import { genreList, releaseYearRegexp } from "../../constants/movies.js";
+import { genreList } from "../../constants/movies.js";
 
 const Movie = Sequelize.define(
     "movie",
@@ -30,16 +30,13 @@ const Movie = Sequelize.define(
             allowNull: false,
         },
         releaseYear: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                is: releaseYearRegexp,
-            }
-        },
-        owner: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        }
+        },
+        // owner: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // }
     }
 );
 

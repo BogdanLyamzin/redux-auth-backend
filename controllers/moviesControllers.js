@@ -5,8 +5,9 @@ import HttpError from "../helpers/HttpError.js";
 import ctrlWrapper from "../decorators/ctrlWrapper.js";
 
 const getMoviesController = async (req, res) => {
-  const { id: owner } = req.user;
-  const data = await moviesService.getMovies({owner});
+  // const { id: owner } = req.user;
+  // const data = await moviesService.getMovies({owner});
+  const data = await moviesService.getMovies({});
   res.json(data);
 };
 
@@ -23,8 +24,9 @@ const getMovieByIdController = async (req, res) => {
 };
 
 const addMovieController = async (req, res) => {
-  const { id: owner } = req.user;
-  const data = await moviesService.addMovie({ ...req.body, owner });
+  // const { id: owner } = req.user;
+  // const data = await moviesService.addMovie({ ...req.body, owner });
+  const data = await moviesService.addMovie(req.body);
 
   res.status(201).json(data);
 };
@@ -43,8 +45,9 @@ const updateMovieByIdController = async (req, res) => {
 
 const deleteMovieByIdController = async (req, res) => {
   const { id } = req.params;
-  const { id: owner } = req.user;
-  const data = await moviesService.deleteMovie({id, owner});
+  // const { id: owner } = req.user;
+  // const data = await moviesService.deleteMovie({id, owner});
+  const data = await moviesService.deleteMovie({id});
 
   if (!data) {
     throw HttpError(404, `Movie with id=${id} not found`);

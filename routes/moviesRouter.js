@@ -12,7 +12,7 @@ import isEmptyBody from "../middlewares/isEmptyBody.js";
 
 const moviesRouter = express.Router();
 
-moviesRouter.use(authenticate);
+// moviesRouter.use(authenticate);
 
 moviesRouter.get("/", moviesControllers.getMoviesController);
 
