@@ -12,15 +12,9 @@ const signupController = async(req, res)=> {
 }
 
 const signinController = async(req, res)=> {
-    if(req.body.email === "bogdan@gmail.com" && req.body.password === "123456") {
-        return res.json({
-            message: "Authentication successfully"
-        })
-    }
+   const data = await authServices.signinUser(req.body);
 
-    res.status(401).json({
-        message: "Authentication error"
-    });
+    res.json(data);
 }
 
 const getCurrentController = (req, res)=> {
