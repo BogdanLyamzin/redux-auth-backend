@@ -60,6 +60,10 @@ export const signinUser = async data => {
     // });
 
     return {
+        user: {
+            email,
+            username: user.username,
+        },
         token,
     };
 }

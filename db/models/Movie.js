@@ -40,6 +40,6 @@ const Movie = Sequelize.define(
     }
 );
 
-Movie.sync({force: true});
+// Movie.sync({force: true});
 
 export default Movie;
