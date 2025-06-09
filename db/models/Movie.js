@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 
 import Sequelize from "../Sequelize.js";
 
-import { genreList } from "../../constants/movies.js";
+import { typeList } from "../../constants/movies.js";
 
 const Movie = Sequelize.define(
     "movie",
@@ -24,8 +24,8 @@ const Movie = Sequelize.define(
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
-        genre: {
-            type: DataTypes.ENUM(...genreList),
+        type: {
+            type: DataTypes.ENUM(...typeList),
             defaultValue: "film",
             allowNull: false,
         },
@@ -33,10 +33,10 @@ const Movie = Sequelize.define(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        // owner: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        // }
+        owner: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     }
 );
 

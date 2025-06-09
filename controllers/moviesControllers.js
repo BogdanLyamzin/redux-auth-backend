@@ -5,9 +5,9 @@ import HttpError from "../helpers/HttpError.js";
 import ctrlWrapper from "../decorators/ctrlWrapper.js";
 
 const getMoviesController = async (req, res) => {
-  // const { id: owner } = req.user;
-  // const data = await moviesService.getMovies({owner});
-  const data = await moviesService.getMovies({});
+  const { id: owner } = req.user;
+  const data = await moviesService.getMovies({owner});
+  // const data = await moviesService.getMovies({});
   res.json(data);
 };
 
@@ -24,9 +24,9 @@ const getMovieByIdController = async (req, res) => {
 };
 
 const addMovieController = async (req, res) => {
-  // const { id: owner } = req.user;
-  // const data = await moviesService.addMovie({ ...req.body, owner });
-  const data = await moviesService.addMovie(req.body);
+  const { id: owner } = req.user;
+  const data = await moviesService.addMovie({ ...req.body, owner });
+  // const data = await moviesService.addMovie(req.body);
 
   res.status(201).json(data);
 };
